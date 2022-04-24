@@ -96,10 +96,12 @@
                             <th style="text-align: right;">Grand Total :</th>
                             <th style="text-align: right;">{{ format_uang($penjualan->bayar) }}</th>
                         </tr>
+                        @if($totaldisk > 0)
                         <tr>
                             <td style="text-align: right;">Anda Hemat :</td>
                             <td style="text-align: right;">{{ format_uang($totaldisk+($penjualan->total_harga*$penjualan->diskon/100)) }}</td>
                         </tr>
+                        @endif
                     </table>
                     ===========================
                     <!-- **************************** -->

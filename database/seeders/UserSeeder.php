@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
         File::copy(public_path('assets/dist/img/old/avatar4.png'), public_path('assets/dist/img/avatar4.png'));
         $adm1 = User::create([
             'nama' => 'Admin',
-            'email' => 'adm@gmail.com',
+            'email' => 'admin@gmail.com',
             'password' => Hash::make('admin12345'),
             'foto' => 'avatar4.png'
         ]);
