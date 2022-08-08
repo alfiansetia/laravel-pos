@@ -14,7 +14,6 @@ use App\Http\Controllers\{
     SupplierController,
     UserController,
 };
-use App\Models\Setting;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -35,9 +34,9 @@ Auth::routes([
     'verify' => false,
     'confirm' => false
 ]);
+
 Route::get('/', function () {
-    $toko = Setting::first();
-    return redirect()->route('login')->with(['toko', $toko]);
+    return redirect()->route('login');
 });
 
 Route::group(['middleware' => 'auth'], function () {
