@@ -19,8 +19,7 @@ class SupplierController extends Controller
     public function index(Request $request)
     {
         //
-        $id = Auth::id();
-        $user = User::find($id);
+        $user = Auth::user();
         $toko = Setting::first();
         if ($request->ajax()) {
             return DataTables::of(Supplier::query())->toJson();

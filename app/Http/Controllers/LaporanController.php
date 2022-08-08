@@ -53,8 +53,7 @@ class LaporanController extends Controller
         //  else {
         //     return response()->json('null');
         // }
-        $id = Auth::id();
-        $user = User::find($id);
+        $user = Auth::user();
         $toko = Setting::first();
         return view('laporan.pendapatan', compact(['user', 'toko']))->with('title', 'Laporan Pendapatan');
     }
@@ -87,8 +86,7 @@ class LaporanController extends Controller
                 return response()->json(['status' => false, 'message' => 'Tanggal Awal dan akhir tidak ada/tidak sesuai', 'data' => '']);
             }
         }
-        $id = Auth::id();
-        $user = User::find($id);
+        $user = Auth::user();
         $toko = Setting::first();
         return view('laporan.kasir', compact(['user', 'toko']))->with('title', 'Laporan Kasir');
     }
@@ -121,8 +119,7 @@ class LaporanController extends Controller
                 return response()->json(['status' => false, 'message' => 'Tanggal Awal dan akhir tidak ada/tidak sesuai', 'data' => '']);
             }
         }
-        $id = Auth::id();
-        $user = User::find($id);
+        $user = Auth::user();
         $toko = Setting::first();
         return view('laporan.supplier', compact(['user', 'toko']))->with('title', 'Laporan Supplier');
     }

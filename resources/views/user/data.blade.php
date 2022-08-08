@@ -4,9 +4,9 @@
 
 <!-- DataTables -->
 
-<link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-<link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
-<link rel="stylesheet" href="{{ asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
 <!-- <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
@@ -313,7 +313,11 @@
                         } else {
                             text = `<img src="{{ asset("assets/dist/img/") }}/${row.foto}" width="20px" height="20px"> ${data}`;
                         }
-                        return text
+                        if (type == 'display') {
+                            return text
+                        } else {
+                            return data
+                        }
                     }
                 },
                 {
@@ -329,7 +333,11 @@
                         } else {
                             text = `<span class="badge badge-danger">${data}</span>`
                         }
-                        return text
+                        if (type == 'display') {
+                            return text
+                        } else {
+                            return data
+                        }
                     }
                 },
                 {

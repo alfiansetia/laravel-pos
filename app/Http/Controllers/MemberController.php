@@ -20,15 +20,14 @@ class MemberController extends Controller
     public function index(Request $request)
     {
         //
-        $id = Auth::id();
-        $user = User::find($id);
+        $user = Auth::user();
         $toko = Setting::first();
         if ($request->ajax()) {
             return DataTables::of(Member::query())->toJson();
         }
-        if($user->hasRole('admin')){
-        return view('member.data', compact(['user', 'toko']))->with('title', 'Data Member');
-        }else{
+        if ($user->hasRole('admin')) {
+            return view('member.data', compact(['user', 'toko']))->with('title', 'Data Member');
+        } else {
             abort(403);
         }
     }
@@ -149,7 +148,7 @@ class MemberController extends Controller
             return response()->json(['status' => false, 'message' => 'Failed Delete Data']);
         }
     }
-    
+
     public function destroyBatch(Request $request)
     {
         if ($request->id) {

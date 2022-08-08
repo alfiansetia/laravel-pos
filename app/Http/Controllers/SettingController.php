@@ -20,8 +20,7 @@ class SettingController extends Controller
      */
     public function index()
     {
-        $id = Auth::id();
-        $user = User::find($id);
+        $user = Auth::user();
         $toko = Setting::first();
         return view('setting.toko', compact(['user', 'toko']))->with('title', 'Setting Toko');
     }
@@ -71,8 +70,7 @@ class SettingController extends Controller
 
     public function profile()
     {
-        $id = Auth::id();
-        $user = User::find($id);
+        $user = Auth::user();
         $toko = Setting::first();
         $penjualan = Penjualan::where('user_id', $id)->sum('bayar');
         return view('setting.profile', compact(['user', 'toko', 'penjualan']))->with('title', 'Setting Profile');

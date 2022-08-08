@@ -22,8 +22,7 @@ class PembelianController extends Controller
     public function index(Request $request)
     {
         //
-        $id = Auth::id();
-        $user = User::find($id);
+        $user = Auth::user();
         $toko = Setting::first();
         if ($request->ajax()) {
             return DataTables::of(Pembelian::with('supplier')->get())->toJson();
@@ -39,8 +38,7 @@ class PembelianController extends Controller
     public function create()
     {
         //
-        $id = Auth::id();
-        $user = User::find($id);
+        $user = Auth::user();
         $toko = Setting::first();
         return view('pembelian.create', compact(['user', 'toko']))->with('title', 'Tambah Pembelian');
     }

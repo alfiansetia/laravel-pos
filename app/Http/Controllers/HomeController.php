@@ -30,8 +30,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $id = Auth::id();
-        $user = User::find($id);
+        $user = Auth::user();
         $toko = Setting::first();
         $kategori = Kategori::count();
         $produk = Produk::count();
