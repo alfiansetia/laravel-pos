@@ -72,7 +72,7 @@ class SettingController extends Controller
     {
         $user = Auth::user();
         $toko = Setting::first();
-        $penjualan = Penjualan::where('user_id', $id)->sum('bayar');
+        $penjualan = Penjualan::where('user_id', $user->id)->sum('bayar');
         return view('setting.profile', compact(['user', 'toko', 'penjualan']))->with('title', 'Setting Profile');
     }
 
