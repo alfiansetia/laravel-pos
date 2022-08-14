@@ -9,6 +9,7 @@ use App\Http\Controllers\{
     PembelianDetailController,
     PengeluaranController,
     PenjualanController,
+    PrintController,
     ProdukController,
     SettingController,
     SupplierController,
@@ -38,6 +39,7 @@ Auth::routes([
 Route::get('/', function () {
     return redirect()->route('login');
 });
+Route::get('print', [PrintController::class, 'index'])->name('print.index');
 
 Route::group(['middleware' => 'auth'], function () {
 
